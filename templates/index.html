@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Language Recognition</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #141e30, #243b55);
+    }
+    .glass {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body class="min-h-screen text-white flex flex-col items-center justify-center px-4">
+
+  <div class="text-center mb-6">
+    <h1 class="text-4xl font-bold mb-2">🌍 Language Recognition</h1>
+    <p class="text-gray-300">Upload an image — we’ll extract, detect & translate it automatically.</p>
+  </div>
+
+  <form id="uploadForm" class="w-full max-w-md p-6 rounded-2xl glass border border-white/20" action="/detect" method="POST" enctype="multipart/form-data">
+    <input class="block w-full mb-4 text-sm text-white bg-gray-900 border border-gray-600 rounded-lg cursor-pointer" type="file" name="image" accept="image/*" onchange="previewImage(event)" required>
+
+    <div class="flex justify-center mb-4">
+      <img
+        id="preview"
+        class="max-h-64 rounded-lg {% if not result or not result.image_url %}hidden{% endif %}"
+        src="{% if result and result.image_url %}{{ result.image_url }}{% else %}#{% endif %}"
+        alt="Image Preview"
+      >
+    </div>
+
+    <button type="submit" class="w-full py-2 bg-indigo-600 hover:bg-indigo-700 rounded-lg font-semibold transition">Extract Text</button>
+  </form>
+
+  {% if result %}
+  <div class="mt-10 w-full max-w-3xl p-6 bg-white/10 rounded-xl glass border border-white/20">
+    <h2 class="text-2xl font-semibold mb-4">📋 Detection Result</h2>
+
+    {% if result.error %}
+      <p class="text-red-400 font-semibold">{{ result.error }}</p>
+    {% else %}
+      <div class="mb-4">
+        <h3 class="font-semibold text-lg text-indigo-300">Extracted Text:</h3>
+        <pre class="whitespace-pre-wrap text-white bg-black/40 p-3 rounded-md mt-2">{{ result.extracted_text }}</pre>
+      </div>
+
+      <div class="mb-4">
+        <h3 class="font-semibold text-lg text-indigo-300">Detected Language:</h3>
+        <p class="text-white mt-1">🌐 <span class="font-bold">{{ result.detected_language }}</span></p>
+      </div>
+
+      <div class="mb-4">
+        <h3 class="font-semibold text-lg text-indigo-300">Language Probabilities:</h3>
+        <ul class="list-disc pl-5 mt-2">
+          {% for lang in result.detected_languages_with_probabilities %}
+            <li>{{ lang.lang }} — {{ (lang.prob * 100)|round(2) }}%</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="mb-4">
+        <h3 class="font-semibold text-lg text-indigo-300">Translated Text (English):</h3>
+        <pre class="whitespace-pre-wrap text-white bg-black/40 p-3 rounded-md mt-2">{{ result.translated_text }}</pre>
+      </div>
+
+      {% if result.download_ready %}
+      <div class="mt-4">
+        <a href="/download/{{ result.filename }}" class="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg font-semibold transition">
+          📥 Download Text
+        </a>
+      </div>
+      {% endif %}
+    {% endif %}
+  </div>
+
+
+  {% endif %}
+
+  <footer class="mt-12 text-sm text-gray-400 text-center">
+    IITI Soc'24 Project
+  </footer>
+
+  <script>
+    function previewImage(event) {
+      const image = document.getElementById('preview');
+      image.src = URL.createObjectURL(event.target.files[0]);
+      image.classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>

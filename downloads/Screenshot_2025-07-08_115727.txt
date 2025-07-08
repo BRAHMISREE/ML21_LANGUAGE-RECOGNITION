@@ -1,0 +1,89 @@
+b
+
+File Edit Selection View
+
+Go Run
+
+~ Es |
+
+LANGUAGE RECOGNITION
+
+| Be
+
+BOG
+
+ee... FRO @
+
+‘@ apppy U
+
+“© requirements.txt U
+
+README.md U X
+
+‘@ preprocessing.py U
+
+“@ ocr_utils.py 1, U
+
+%% pywenv.cfg
+
+dj inde:
+
+Ye @
+
+I)
+
+“| 3 ©
+
+> 6 venv
+
+v t@ downloads
+
+\ tm templates
+dj index.html U
+
+V ‘@ uploads
+WS deloitte_pag... U
+WS preprocessed... U
+GS WhatsApp_l.. u
+@§ WhatsApp_l... U
+e app.py
+‘e@ ocrutilspy 1,
+‘@ preprocessing... U
+
+README.md u
+
+WY requirements.txt U
+
+U
+U
+
+} master* <>
+
+@oA1
+
+README.md > @J# <2 Language Recognition - OCR Tool > & ### ,
+
+How to Run
+
+@ Live Share
+
+1 # we Language Recognition - OCR Tool
+so
+37 ## Demo
+38 Upload an image > Get extracted & translated text + Download editable file.
+39 -
+46 ## I Folder Structure
+41
+42 @ language-recognition-ocr
+43 | Mp images/
+44 f Woutputs/
+45 || Bapp.py
+46 f Bi preprocessing. py
+47 + Hor_utils.py
+48 - Brequirements.txt
+49 L README .md
+PROBLEMS 1 OUTPUT = DEBUGCONSOLE | TERMINAL] PORTS fee A x
+powershell A
+© PS C: \Users\brahm\OneDrive\Desktop\WEBD\VScode\LANGUAGE RECOGNITION> powershell A
+fy
+In58,Col4 Spaces:4 UTF-8 CRLF {§ Markdown Q3FinishSetup @ GoLive w/Prettier (@
