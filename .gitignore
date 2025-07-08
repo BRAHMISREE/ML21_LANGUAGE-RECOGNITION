@@ -1,3 +1,5 @@
-# Ignore upload/download folders
-uploads/
-downloads/
+uploads/*
+!uploads/.gitkeep
+
+downloads/*
+!downloads/.gitkeep
