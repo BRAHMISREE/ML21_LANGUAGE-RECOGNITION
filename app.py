@@ -7,6 +7,10 @@ from translatepy import Translator
 from werkzeug.utils import secure_filename
 import os
 
+
+os.makedirs("uploads", exist_ok=True)
+os.makedirs("downloads", exist_ok=True)
+
 # --- Config ---
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'

@@ -1,0 +1,2 @@
+New-Item -ItemType File uploads\.gitkeep
+New-Item -ItemType File downloads\.gitkeep
