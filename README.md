@@ -1,7 +1,7 @@
 
 # 🌍 Language Recognition Web App
 
-A Flask-based application that extracts text from uploaded images, detects the language, translates it to English, and provides a downloadable output — all in a beautiful UI.
+A Flask-based application that extracts text from uploaded images, detects the language, translates it to English, and provides a downloadable output .
 
 ---
 
@@ -103,29 +103,3 @@ translatepy
 ```
 
 ---
-
-## ⚠ Notes
-
-* OCR supports multiple languages: `eng+hin+tel+tam+kan+mal+ben+guj+pan` by default.
-* Language detection may still detect other languages even if not listed in OCR.
-* Translation supports many global languages but depends on TranslatePy's backend status.
-* Avoid uploading large images to speed up processing.
-
----
-
-## 👨‍💻 Author
-
-Built with ❤️ by **IITI Soc'24**
-
----
-
-## 📄 License
-
-MIT License. Free to use, remix, and deploy.
-
-```
-
----
-
-Let me know if you want a `.gitignore`, deployment guide, or badge-style README tweaks too! 💻✅
-```
